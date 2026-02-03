@@ -2,6 +2,9 @@ package br.com.missio.dseventos.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_atividade")
 public class Atividade {
@@ -16,6 +19,9 @@ public class Atividade {
     @ManyToOne
     @JoinColumn(name="categoria_id")
     private Categoria categoria;
+
+    @ManyToMany(mappedBy = "atividades")
+    private Set<Participante> participantes = new HashSet<>();
 
     public Atividade() {
     }
@@ -66,5 +72,9 @@ public class Atividade {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Set<Participante> getParticipantes() {
+        return participantes;
     }
 }
