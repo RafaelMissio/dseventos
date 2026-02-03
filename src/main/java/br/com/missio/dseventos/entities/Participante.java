@@ -3,6 +3,7 @@ package br.com.missio.dseventos.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -55,5 +56,18 @@ public class Participante {
 
     public Set<Atividade> getAtividades() {
         return atividades;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Participante that = (Participante) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
