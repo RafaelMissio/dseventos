@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Bloco {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(columnDefinition = "Timestamp without time zone")
@@ -20,7 +20,7 @@ public class Bloco {
     private Instant fim;
 
     @ManyToOne
-    @MapsId
+    @JoinColumn(name = "atividade_id")
     private Atividade atividade;
 
     public Bloco() {

@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "tb_participantes")
+@Table(name = "tb_participante")
 public class Participante {
 
     @Id
